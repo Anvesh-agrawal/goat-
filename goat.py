@@ -1,9 +1,10 @@
+#importing libraries
 import cv2
 import mediapipe as mp
 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(max_num_hands=1)
+hands = mp_hands.Hands(max_num_hands=1) #
 
 cam = cv2.VideoCapture(0)
 mycoordinatedata = {}
@@ -26,6 +27,7 @@ while i==1:
                 y_cord = lms.y * height
                 mycoordinatedata[id] = (x_cord,y_cord)
                 try:
+                    # conditions for type of plastic and points
                     if mycoordinatedata[8][1] < mycoordinatedata[5][1] and mycoordinatedata[12][1] > mycoordinatedata[9][1]:
                         print("Type of Plastic is PET")
                         w=float(input("enter weight of plastics bottles(in gms): "))
